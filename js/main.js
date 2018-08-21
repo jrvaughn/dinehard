@@ -4,7 +4,8 @@ $(document).ready(function(){
     var pageRef = $(this).attr('href');
 
     callPage(pageRef);
-  })
+  });
+});
 
 
   function callPage(pageRefInput){
@@ -27,7 +28,4 @@ $(document).ready(function(){
         console.log('grats');
       }
     });
-
-
-
-}
+  }
