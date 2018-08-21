@@ -23,7 +23,7 @@ $(document).ready(function(){
         console.log('failed to retrieve page ', error);
       }
 
-      
+
     });
 
 
