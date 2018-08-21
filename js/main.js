@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $('a').on('click', function(e){
+  $('.nav-link').on('click', function(e){
     e.preventDefault();
     var pageRef = $(this).attr('href');
 
@@ -14,18 +14,18 @@ $(document).ready(function(){
 
       type:"GET",
 
-      dataType: "text/html",
+      dataType: "text",
 
       success: function(response){
         $('.content').html(response);
       },
 
       error: function(error){
-        console.log('failed to retrieve page ', error);
+        console.log('failed to retrieve page ' + error.statusText , error);
       },
 
       complete: function(xhr, status){
-        console.log('grats');
+        //console.log('grats');
       }
     });
   }
