@@ -16,16 +16,18 @@ $(document).ready(function(){
       dataType: "text/html",
 
       success: function(response){
-        $('.about')
-      }
+        $('.content').html(response);
+      },
 
       error: function(error){
         console.log('failed to retrieve page ', error);
+      },
+
+      complete: function(xhr, status){
+        console.log('grats');
       }
-
-
     });
 
 
 
-})}
+}
