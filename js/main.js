@@ -2,13 +2,19 @@ $(document).ready(function(){
   $('.nav-link').on('click', function(e){
     e.preventDefault();
     var pageRef = $(this).attr('href');
+    var targetTitle = $(this).attr('title');
 
-    callPage(pageRef);
+  callPage(pageRef, targetTitle);
   });
+
+  window.onpopstate = function(e) {
+      //$(".nav-link").fadeTo('fast', 1.0);
+      callPage(e.state ? e.state.url : null);
+  };
 });
 
 
-  function callPage(pageRefInput){
+  function callPage(pageRefInput, targetTitleInput){
     $.ajax({
       url: pageRefInput,
 
@@ -18,7 +24,7 @@ $(document).ready(function(){
 
       success: function(response){
         $('.content').html(response);
-         window.location.hash = "!/" + pageRefInput;
+         window.history.pushState({url: "" + pageRefInput + ""}, targetTitleInput, pageRefInput);
       },
 
       error: function(error){
